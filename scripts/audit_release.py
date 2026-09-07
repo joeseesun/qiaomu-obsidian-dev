@@ -39,7 +39,7 @@ def audit(root, tag=None, budget=5_000_000):
     if package is not None and package.get('version') != version:
         failures.append('package version differs from manifest')
     versions = read_json('versions.json', False)
-    if versions is not None and versions.get(version) != manifest.get('minAppVersion'):
+    if versions is not None and (not isinstance(version, str) or versions.get(version) != manifest.get('minAppVersion')):
         failures.append('versions.json does not map this version to minAppVersion')
     for name in ('main.js', 'manifest.json', 'styles.css'):
         path = root / name

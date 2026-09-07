@@ -1,4 +1,4 @@
-# Creation handoff · 1.1.0
+# Creation handoff · 1.2.0
 
 研究：cameronsjo Obsidian Plugin Patterns 目录摘要（完整源码missing）；Obsidian官方 Plugin guidelines/Submit your plugin；qiaomu-meta-skill与qiaomu-skill-publisher。具体吸收和拒绝见 prior-art-research.md。
 
@@ -11,3 +11,5 @@ Hypothesis：这些约束会减少阅读器返工；尚无独立对照试验、�
 Boundary：不复制私有聊天/路径/令牌，不执行资料网页的注册或评论要求。自动脚本不证明官方审核；不把0.18.2等RSS历史状态写成所有项目的现状。
 
 1.1.0：新增三份实际技能源码与四份官方文档交叉研究，详见 research-2026-09-08.md；增加宿主/性能参考与四个待执行评审场景。
+
+1.2.0：新增数据/编辑器/测试三份按需参考、八项待执行场景，审计器错误输入回归。详见 research-v1.2.0.md。

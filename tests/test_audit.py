@@ -38,3 +38,13 @@ class ReleaseAuditTests(unittest.TestCase):
         before={p.name:p.read_bytes() for p in self.root.iterdir()}; module.audit(self.root); self.assertEqual(before,{p.name:p.read_bytes() for p in self.root.iterdir()})
     def test_invalid_id(self):
         self.manifest['id']='obsidian-thing'; self.write('manifest.json',self.manifest); self.assertFalse(module.audit(self.root)['ok'])
+
+    def test_non_string_version_with_mapping_returns_failure(self):
+        self.write('versions.json', {'1.2.3': '1.0.0'})
+        for version in ([], {}, None, 123):
+            with self.subTest(version=version):
+                self.manifest['version'] = version
+                self.write('manifest.json', self.manifest)
+                result = module.audit(self.root)
+                self.assertFalse(result['ok'])
+                self.assertIn('manifest missing or invalid version', result['failures'])
