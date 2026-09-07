@@ -12,3 +12,10 @@ These are human/agent review rubrics, not executed model tests.
 8. Native settings duplicate navigation. Pass: reusable row cleaned and repeated-tab behavior tested. Fail: hide extra bars with CSS only.
 
 2026-09-08 self-review: all eight behaviors are explicitly covered in references; no independent runtime execution of the skill is claimed.
+
+## 新增人工评审场景（尚非实测）
+
+9. 支持旧宿主的插件迁移声明式设置：须先确认最低版本、保留兼容路径，不能静默提高版本。
+10. 设置独立窗口修改字体：须更新阅读视图所属文档，不能只改 activeDocument。
+11. 未加载阅读视图回跳：await revealLeaf 后验证实例，不能强制加载所有后台页签。
+12. 百万行笔记高亮：不得用 DOM 当全文或每次键入全库扫描，需视口/状态方案与性能测量。
