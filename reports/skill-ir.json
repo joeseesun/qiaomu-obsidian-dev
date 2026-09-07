@@ -1,0 +1,129 @@
+{
+  "schema_version": "2.0.0-qiaomu-lite",
+  "generated_at": "2026-09-08",
+  "package": {
+    "name": "qiaomu-obsidian-dev",
+    "version": "1.0.0",
+    "owner": "向阳乔木",
+    "maturity_tier": "governed",
+    "lifecycle_stage": null,
+    "upstream_inspiration": null,
+    "upstream_sync": {}
+  },
+  "intent": {
+    "description": "Develop, debug, review, test and release Obsidian plugins with Qiaomu reading-first UX and native APIs. Use for Obsidian 插件开发、阅读器、设置、字体、摘录、日记、图片附件、移动端、回跳链接、构建和官方审核发布. Also use when fixing an existing plugin's UX, lifecycle, race conditions or release evidence. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.\n",
+    "job_to_be_done": "Develop, debug, review, test and release Obsidian plugins with Qiaomu reading-first UX and native APIs. Use for Obsidian 插件开发、阅读器、设置、字体、摘录、日记、图片附件、移动端、回跳链接、构建和官方审核发布. Also use when fixing an existing plugin's UX, lifecycle, race conditions or release evidence. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.\n",
+    "target_users": [
+      "Qiaomu operator"
+    ],
+    "inputs": [
+      "task intent",
+      "repository",
+      "SDK version",
+      "QA vault",
+      "review feedback"
+    ],
+    "outputs": [
+      "minimal patch or review",
+      "verification record",
+      "release-stage ledger"
+    ],
+    "exclusions": [
+      "ordinary vault writing",
+      "unrequested publishing"
+    ],
+    "qiaomu_defaults": {}
+  },
+  "triggers": {
+    "should_trigger": [
+      "开发 Obsidian 插件",
+      "修复 Obsidian 阅读器字体",
+      "审查 Obsidian plugin release",
+      "Obsidian 插件设置重复 tab",
+      "Obsidian 阅读器回跳修复",
+      "Obsidian 插件官方审核发布"
+    ],
+    "should_not_trigger": [
+      "帮我写普通 Markdown",
+      "推荐插件给 Obsidian",
+      "Obsidian 只写笔记，不要开发插件",
+      "创建 skill 教人 Obsidian 插件开发"
+    ],
+    "near_neighbor": [
+      "开发 VSCode 插件",
+      "修复网页阅读器字体",
+      "翻译文档 Obsidian plugin release",
+      "Obsidian 笔记整理"
+    ]
+  },
+  "workflow": {
+    "router_rules": [
+      "Only load task-relevant references",
+      "Audit-only is read-only",
+      "Current user overrides defaults"
+    ],
+    "compact_workflow": [
+      "inspect",
+      "reproduce",
+      "implement",
+      "verify in QA vault",
+      "publish if authorized",
+      "report evidence"
+    ],
+    "gate_ladder": [],
+    "output_contract": [
+      "diagnosis",
+      "implementation",
+      "verification",
+      "distribution status"
+    ]
+  },
+  "resources": {
+    "references": [
+      "references/capture-navigation.md",
+      "references/engineering.md",
+      "references/fonts-media.md",
+      "references/lessons.md",
+      "references/product-ux.md",
+      "references/release.md"
+    ],
+    "scripts": [
+      "scripts/audit_release.py",
+      "scripts/validate_skill.py"
+    ],
+    "evals": [
+      "evals/trigger_cases.json"
+    ],
+    "reports": [
+      "reports/creation-handoff.md",
+      "reports/prior-art-candidates.json",
+      "reports/prior-art-research.md"
+    ]
+  },
+  "portability": {
+    "canonical_format": "agent-skills",
+    "adapter_targets": [
+      "openai",
+      "claude",
+      "generic",
+      "agent-skills-compatible"
+    ],
+    "activation": {},
+    "execution": {},
+    "trust": {
+      "remote_inline_execution": "forbid"
+    },
+    "permissions": {
+      "file_write": "authorized repository and QA vault only",
+      "network": "official documentation and authorized publication"
+    },
+    "degradation": {}
+  },
+  "gates": {},
+  "evidence_boundary": {
+    "generated_reports_are_evidence": true,
+    "planned_work_is_evidence": false,
+    "missing_external_or_human_evidence_label": "missing evidence",
+    "public_claim_policy": "claim only what local validation, install proof, human review, or provider-backed evidence actually supports"
+  }
+}
