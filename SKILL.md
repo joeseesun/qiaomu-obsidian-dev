@@ -4,7 +4,7 @@ description: |
   Develop, debug, review, test and release Obsidian plugins with Qiaomu reading-first UX and native APIs. Use for Obsidian 插件开发、阅读器、设置、字体、摘录、日记、图片附件、移动端、回跳链接、构建和官方审核发布. Also use when fixing an existing plugin's UX, lifecycle, race conditions or release evidence. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.
 metadata:
   author: 向阳乔木
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Qiaomu Obsidian Dev
@@ -36,6 +36,9 @@ metadata:
 | 日记、当前笔记、选区、内部回跳、本地 Markdown | [摘录与来源](references/capture-navigation.md) |
 | 生命周期、Vault API、异步安全、多窗口 | [工程模式](references/engineering.md) |
 | 新设置 API、延迟视图、编辑器扩展、启动性能 | [宿主与性能](references/platform-patterns.md) |
+| 配置迁移、并发写入、同步、密钥、索引 | [数据可靠性](references/data-reliability.md) |
+| Markdown 组件、CM6 装饰、资源释放 | [编辑器与生命周期](references/editor-lifecycle.md) |
+| 回归测试、真实宿主测试、常见故障定位 | [测试与诊断](references/testing-troubleshooting.md) |
 | 插件商店搜不到、审核、Release、安装 | [发布门禁](references/release.md) |
 | 经验来源、偏好变化、哪些不是通则 | [经验与依据](references/lessons.md) |
 

@@ -95,3 +95,11 @@ https://qiaomu.ai · https://x.com/vista8 · https://github.com/joeseesun/
 ## 1.1.0 增补
 
 联网核对三个公开开发技能与官方文档，新增[宿主兼容、性能与编辑器](references/platform-patterns.md)：声明式设置兼容、延迟视图、多窗口字体更新、长文视口与增量处理。[来源与取舍](reports/research-2026-09-08.md)。
+
+## 1.2.0 开发技巧增补
+
+- [数据可靠性](references/data-reliability.md)：迁移、快照冲突、同步、索引与密钥。
+- [编辑器与生命周期](references/editor-lifecycle.md)：CM6、Markdown 渲染、跨窗口与释放。
+- [测试与诊断](references/testing-troubleshooting.md)：隔离宿主测试、移动边界、官方检查与故障定位。
+
+按场景取用，官方要求与工程建议分开标记；[研究记录](reports/research-v1.2.0.md)。

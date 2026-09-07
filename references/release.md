@@ -21,8 +21,10 @@
 
 README 首屏放官方安装 URL 与说明，GitHub About 的 website 可指同一地址；保留 BRAT/手动安装作为适当备用。描述应忠于实际支持，图片来自当前真实 UI，不把美术 mock 当功能截图。目录英文限制、截图大小与 icon 能力先读页面。
 
-设置“关于”放当前版本、release notes、GitHub Issues 和公开作者信息。只使用宿主更新机制；不静默下载可执行代码，不替用户开启遥测。下载统计是下载次数，不等于安装用户或活跃用户。
+设置“关于”放当前版本、release notes、GitHub Issues 和公开作者信息。只使用宿主更新机制；不静默下载可执行代码，不包含客户端遥测（不是加开关即可合规）。下载统计是下载次数，不等于安装用户或活跃用户。
 
 ## 成功报告示例
 
 本地/CI 通过；GitHub 1.2.3 已发布且三个资产完整；官方审核 queued；公开页面仍为 1.2.2。下一步是等待/处理官方反馈，不能写「自动上架成功」。
+
+政策依据：[Developer policies](https://docs.obsidian.md/community-directory/developer-policies)，核对于 2026-09-08；后续发布重新核实。
