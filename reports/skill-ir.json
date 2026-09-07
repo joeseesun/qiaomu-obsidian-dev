@@ -3,7 +3,7 @@
   "generated_at": "2026-09-08",
   "package": {
     "name": "qiaomu-obsidian-dev",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "owner": "向阳乔木",
     "maturity_tier": "governed",
     "lifecycle_stage": null,
@@ -85,7 +85,8 @@
       "references/fonts-media.md",
       "references/lessons.md",
       "references/product-ux.md",
-      "references/release.md"
+      "references/release.md",
+      "references/platform-patterns.md"
     ],
     "scripts": [
       "scripts/audit_release.py",
@@ -97,7 +98,8 @@
     "reports": [
       "reports/creation-handoff.md",
       "reports/prior-art-candidates.json",
-      "reports/prior-art-research.md"
+      "reports/prior-art-research.md",
+      "reports/research-2026-09-08.md"
     ]
   },
   "portability": {

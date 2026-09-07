@@ -91,3 +91,7 @@ An opinionated Agent Skill for developing and reviewing Obsidian plugins: readin
 Copyright (c) 向阳乔木. GPL-3.0-only，保留第三方各自许可；遵守GPL可商用，额外授权可联系作者，不声称开源使用必须付费。
 
 https://qiaomu.ai · https://x.com/vista8 · https://github.com/joeseesun/
+
+## 1.1.0 增补
+
+联网核对三个公开开发技能与官方文档，新增[宿主兼容、性能与编辑器](references/platform-patterns.md)：声明式设置兼容、延迟视图、多窗口字体更新、长文视口与增量处理。[来源与取舍](reports/research-2026-09-08.md)。
