@@ -1,10 +1,10 @@
 ---
 name: qiaomu-obsidian-dev
 description: |
-  Develop, debug, review, test and release Obsidian plugins with Qiaomu reading-first UX and native APIs. Use for Obsidian 插件开发、阅读器、设置、字体、摘录、日记、图片附件、移动端、回跳链接、构建和官方审核发布. Also use when fixing an existing plugin's UX, lifecycle, race conditions or release evidence. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.
+  Develop, debug, review, test and release any Obsidian plugin with current native APIs and evidence-based engineering. Use for commands, editor extensions, custom views, search/indexing, import/export, sync/network integrations, media/reading, AI tools, settings, mobile compatibility and official releases. Also use for lifecycle, data, performance, race-condition and release failures. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.
 metadata:
   author: 向阳乔木
-  version: "1.2.0"
+  version: "1.7.0"
 ---
 
 # Qiaomu Obsidian Dev
@@ -20,45 +20,60 @@ metadata:
 
 ## 最小工作流
 
-1. 复述用户结果与重要假设，按下面的路由只读相关参考。优先最小改动，不给普通变更增加仪式流程。
-2. 修复前复现问题，追踪状态、DOM 所属文档、异步请求、文件写入或发布链路；对症找到根因。
-3. 用现有架构实现。跨渠道保存阅读上下文；异步切换立即更新选择并防止旧响应覆盖；操作完成不丢焦点、选区和滚动。
-4. 按改动运行 lint/typecheck/测试/build，再安装到指定测试库并重载。验证真正的用户操作；模拟测试和实机结果分开写。
-5. 授权发布时按 [发布门禁](references/release.md) 走 feature branch → PR → checks → merge → exact-tag assets → 目录审核 → 公开页核验。
-6. 交付改动、测试结果、未覆盖平台、实际发布阶段和可点击产物。无法验证的部分直接标记，禁止声称「自动上架成功」。
+1. 将本轮及仍未完成的要求逐项对应到用户动作和验收结果；新纠正覆盖同一行为的旧决定，不丢掉其他待办。读取 [插件类型与通用架构](references/plugin-architecture.md)，判断插件主类型、宿主触点、状态所有者、外部副作用、平台范围和主要风险，再只加载相关专项参考。
+2. 新插件或重大新能力在写实现前读取 [前置调研与评估](references/prior-art-evaluation.md)：先核对当前官方文档/API/示例，再检查功能最接近且许可明确的开源插件源码，交付可追溯的评估方案。默认等用户确认推荐方向后再进入大规模实现；用户已明确“直接开发/按推荐方案做”时，可在同一轮给出精简评估后继续。局部修复、回归、文档与发布工作不强制重做完整调研。
+3. 修复前复现问题，沿“用户动作 → 命令/事件 → 状态转换 → 宿主/网络/文件副作用 → UI反馈 → 清理/恢复”定位根因；不能从某个历史案例直接猜当前插件也有同一问题。
+4. 在现有架构内做最小实现。明确单一数据源、请求/任务身份、持久化时机、失败恢复、卸载清理与兼容边界；保持用户当前任务、焦点、选区、编辑内容或其他插件相关状态不被意外覆盖。
+5. 按改动运行 lint/typecheck/测试/build，再安装到指定测试库并重载。验证真正的用户操作；模拟测试和实机结果分开写。
+6. 授权发布时按 [发布门禁](references/release.md) 走 feature branch/PR → checks → 最终候选 SHA 官方 Preview Scan → Draft Release 与安装验收 → **先公开同版本 Release 并确认匿名资产 200/摘要匹配，再让默认分支 manifest 暴露新版本** → 正式审核与目录/客户端核验。预扫描 Error 或缺证时不得公开发布；扫描后修改代码/依赖/配置须重扫。CI 默认只产草稿，不因推 tag 直接公开。已登录的 `gh release download` 可读草稿，不能代替匿名安装链路检查。
+7. 交付改动、测试结果、未覆盖平台、实际发布阶段和可点击产物。无法验证的部分直接标记，禁止声称「自动上架成功」。
 
 ## 按任务加载
 
 | 任务 | 参考 |
 | --- | --- |
-| 工具栏、频道、列表、设置、空态、移动交互 | [阅读与设置](references/product-ux.md) |
+| 所有插件：类型识别、状态/副作用/生命周期与验收设计 | [插件类型与通用架构](references/plugin-architecture.md) |
+| 新插件、重大新能力、竞品重叠与技术路线判断 | [前置调研与评估](references/prior-art-evaluation.md) |
+| 视图、工具栏、列表、设置、空态、移动交互 | [产品界面与设置](references/product-ux.md) |
+| 书库、选文 popup/右键、划线回跳、AI 助读 | [学习型阅读器](references/reader-workflows.md) |
 | 字体大小、离线字库、缓存图片、拖拽附件 | [字体与媒体](references/fonts-media.md) |
 | 日记、当前笔记、选区、内部回跳、本地 Markdown | [摘录与来源](references/capture-navigation.md) |
 | 生命周期、Vault API、异步安全、多窗口 | [工程模式](references/engineering.md) |
 | 新设置 API、延迟视图、编辑器扩展、启动性能 | [宿主与性能](references/platform-patterns.md) |
+| 大数据集/长文/媒体、内存增长、虚拟化与资源回收 | [规模与资源性能](references/performance-large-files.md) |
 | 配置迁移、并发写入、同步、密钥、索引 | [数据可靠性](references/data-reliability.md) |
+| 网络服务、跨插件协议、AI、MCP/Skill 与外部能力 | [外部集成与能力](references/ai-integrations.md) |
 | Markdown 组件、CM6 装饰、资源释放 | [编辑器与生命周期](references/editor-lifecycle.md) |
 | 回归测试、真实宿主测试、常见故障定位 | [测试与诊断](references/testing-troubleshooting.md) |
 | 插件商店搜不到、审核、Release、安装 | [发布门禁](references/release.md) |
+| manifest/Release/Tag 不一致、构建验证、CSS Lint、扫描 Pending | [提交故障手册](references/submission-failures.md) |
 | 经验来源、偏好变化、哪些不是通则 | [经验与依据](references/lessons.md) |
 
 ## 默认产品判断
 
-阅读优先，导航和说明按需出现。默认没有 hover tooltip，除非用户明确要求；仍保留可访问名称、焦点与键盘操作。字体调整即时保存。选区摘录按产品需求配置，RSS 已明确要求的两个 popup 图标允许 tooltip，此例不扩展到全产品。
+以用户的主任务而不是数据表或技术模块组织界面：命令型插件缩短执行路径，编辑器插件保持写作流，管理/索引插件突出查找与批处理，集成插件清楚显示连接与同步状态。默认选择即可开始，复杂配置渐进展开；减少常驻说明和无明确用途的控件。阅读型插件再应用“继续读 → 划线/思考 → 笔记 → 回到原文”的专项流程。
 
-复用 Obsidian 日记、文件选择、附件路径与分屏能力。不要把内部识别码、HTML 注释、服务地址或调试选项写进普通阅读/笔记流程。
+默认禁止无明确需求的 hover tooltip、`title`、`setTooltip` 和悬浮解释。Obsidian 会把部分 `aria-label` 映射为提示气泡时，图标按钮必须改用 visually-hidden 文本或 `aria-labelledby`，输入框使用原生 `label`；不能以无障碍为由重新引入 tips。只有用户明确要求，或控件含义无法通过可见文本与标准图标表达时，才逐个加入 tooltip。发布前搜索并审查相关属性。字体调整即时保存。
+
+遵守用户“不使用左侧装饰竖线”的视觉偏好，包括选中态；具体范围与替代方式见 [阅读与设置](references/product-ux.md#设计判断与宿主边界)。
+
+优先复用 Obsidian 已有命令、Editor、Vault/FileManager、MetadataCache、菜单、设置、工作区与附件能力。不要把内部识别码、HTML 注释、服务地址或调试选项暴露到普通用户流程。
 
 ## 验证入口
 
 ```bash
-python3 scripts/audit_release.py /path/to/plugin --tag 1.2.3 --max-asset-bytes 5000000
+python3 scripts/audit_release.py /path/to/plugin --tag 1.2.3 --max-asset-bytes 5000000 --scan-tips
+python3 scripts/check_public_release.py /path/to/plugin --repo owner/repo --version 1.2.3 --attempts 6
 python3 -m unittest discover -s tests -p 'test_*.py'
+rg -n 'setTooltip|setAttribute\(["'"']title|\btitle\s*:|aria-label' plugin-src src styles.css
 ```
 
-审计脚本只读，输出 JSON 与非零失败码；它检查本地产物、版本、大小与摘要，不执行项目代码，不证明官方审核、依赖安全、移动兼容或网络可用。5 MB 是本项目经验的可配置预算，不声称永久官方限制。
+本地审计脚本只读，输出 JSON 与非零失败码；它检查本地产物、版本、大小与摘要。`check_public_release.py` 不使用 GitHub 登录或 API token，通过安装器使用的精确 Release URL 匿名下载根级资产，并与本地最终产物逐字节比较；它只证明当次公开下载，不证明目录同步或真机运行。`--scan-tips` 按插件入口（`esbuild.plugin.mjs`、`tsconfig.plugin.json`，否则退回 `plugin-src`/`src`）只扫真正进入插件的源码与 `main.js`、`styles.css`：源码查 `aria-label`、`title=`、`setTooltip`、`data-tooltip`，构建产物只查 `setTooltip(` 与 `data-tooltip`，跳过测试文件。这些脚本不执行目标项目代码，不证明官方审核、依赖安全或移动兼容。5 MB 是本项目经验的可配置预算，不声称永久官方限制。
 
 ## 输出合同
 
+- Research：问题边界、官方依据、候选仓库及固定 commit、许可/维护状态、可借鉴与拒绝项、证据缺口和检索日期。
+- Assessment：差异化价值、复用矩阵、推荐架构与 MVP、风险/验证计划，以及 Go / Revise / Stop 结论；默认先交付此项再开发。
 - Diagnosis：触发条件、根因、影响、拟修复范围。
 - Implementation：实际文件与用户可见行为，避免只报实现术语。
 - Verification：命令/结果、测试库与版本、桌面/真机/模拟覆盖，失败或缺证。
