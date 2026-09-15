@@ -48,3 +48,10 @@
 - Expanded lexical trigger smoke cases with calendar/view, CM6 editor, CSV import/export, full-vault indexing and external sync prompts: 19/19 passed. This is keyword routing smoke, not model behavior evaluation.
 - Skill Creator quick validation passed; package validation passed with zero failures/warnings; 26 unit tests passed; local Markdown links have no missing targets. `SKILL.md` remains below the package's 14 KB production budget.
 - This validation covers the local installed skill only; GitHub sync/release, clean remote install and independent model forward-testing were not performed.
+
+## 1.7.1 · 2026-09-15
+
+- README rewritten as a user-facing installation page with a first-screen value proposition, one-line install, natural-language trigger, feature comparison, real case studies, limitations and troubleshooting.
+- Added four visually inspected case screenshots under `assets/cases/`: combined Obsidian plugin evidence, Reader library, Reader AI assistance and AI RSS reader.
+- Skill Creator quick validation passed; package validation passed with zero failures/warnings; 26 unit tests passed.
+- Qiaomu Skill Publisher dry-run passed, including README and Qiaomu profile checks.

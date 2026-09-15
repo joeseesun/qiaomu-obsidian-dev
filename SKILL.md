@@ -4,7 +4,7 @@ description: |
   Develop, debug, review, test and release any Obsidian plugin with current native APIs and evidence-based engineering. Use for commands, editor extensions, custom views, search/indexing, import/export, sync/network integrations, media/reading, AI tools, settings, mobile compatibility and official releases. Also use for lifecycle, data, performance, race-condition and release failures. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.
 metadata:
   author: 向阳乔木
-  version: "1.7.0"
+  version: "1.7.1"
 ---
 
 # Qiaomu Obsidian Dev

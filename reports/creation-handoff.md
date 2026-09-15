@@ -1,4 +1,4 @@
-# Creation handoff · 1.7.0
+# Creation handoff · 1.7.1
 
 研究：cameronsjo Obsidian Plugin Patterns 目录摘要（完整源码missing）；Obsidian官方 Plugin guidelines/Submit your plugin；qiaomu-meta-skill与qiaomu-skill-publisher。具体吸收和拒绝见 prior-art-research.md。
 
@@ -41,3 +41,7 @@ Qiaomu Reader 4.2.14 曾在默认分支先暴露新 manifest 版本、对应 Rel
 ## 1.7.0 — 2026-09-15 通用插件架构纠正
 
 用户指出 1.6.0 仍被 Reader/Seed/Radio 的产品形状绑住。新增 `plugin-architecture.md`，用命令、编辑器、视图、索引、导入导出、网络同步、媒体和 AI 八类主任务选择状态、副作用、性能与验收；重写入口工作流为通用事件/状态/副作用/恢复链。将大 PDF、Skill picker、跨插件文章上下文和电台跳台分别抽象为资源分层、外部能力阶段、版本化所有权协议和请求代次/有界恢复；原项目只保留为证据例子。此次本机修订不代表 GitHub 同步或发布。
+
+## 1.7.1 — 2026-09-15 README 发布页升级
+
+README 首屏改为痛点、价值、安装命令、自然语言触发方式与真实案例截图，不再先展示内部版本日志。新增 Qiaomu Reader、Qiaomu AI RSS、Qiaomu Radio 三个实际开发和迭代案例，以及“普通 AI 开发 vs 使用 Skill”对比、八类插件覆盖、证据边界、安装前置和 Troubleshooting。截图来自用户提供的真实插件展示、Reader 当前中文界面和 AI RSS 当前仓库。
