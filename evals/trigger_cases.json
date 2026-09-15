@@ -12,7 +12,8 @@
     "plugin": [
       "plugin",
       "插件",
-      "阅读器"
+      "阅读器",
+      "扩展"
     ],
     "action": [
       "develop",
@@ -23,6 +24,8 @@
       "修复",
       "审查",
       "发布",
+      "优化",
+      "调试",
       "设置",
       "字体",
       "审核"
@@ -41,7 +44,12 @@
     "审查 Obsidian plugin release",
     "Obsidian 插件设置重复 tab",
     "Obsidian 阅读器回跳修复",
-    "Obsidian 插件官方审核发布"
+    "Obsidian 插件官方审核发布",
+    "开发 Obsidian 日历任务视图插件",
+    "修复 Obsidian CM6 编辑器扩展中文输入错位",
+    "审查 Obsidian CSV 导入导出插件的数据安全",
+    "优化 Obsidian 全库索引插件的启动性能",
+    "调试 Obsidian 与外部任务服务的同步插件"
   ],
   "should_not_trigger": [
     "帮我写普通 Markdown",

@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0.0-qiaomu-lite",
-  "generated_at": "2026-09-08",
+  "generated_at": "2026-09-15",
   "package": {
     "name": "qiaomu-obsidian-dev",
-    "version": "1.2.0",
+    "version": "1.7.0",
     "owner": "向阳乔木",
     "maturity_tier": "governed",
     "lifecycle_stage": null,
@@ -11,27 +11,14 @@
     "upstream_sync": {}
   },
   "intent": {
-    "description": "Develop, debug, review, test and release Obsidian plugins with Qiaomu reading-first UX and native APIs. Use for Obsidian 插件开发、阅读器、设置、字体、摘录、日记、图片附件、移动端、回跳链接、构建和官方审核发布. Also use when fixing an existing plugin's UX, lifecycle, race conditions or release evidence. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.\n",
-    "job_to_be_done": "Develop, debug, review, test and release Obsidian plugins with Qiaomu reading-first UX and native APIs. Use for Obsidian 插件开发、阅读器、设置、字体、摘录、日记、图片附件、移动端、回跳链接、构建和官方审核发布. Also use when fixing an existing plugin's UX, lifecycle, race conditions or release evidence. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.\n",
+    "description": "Develop, debug, review, test and release any Obsidian plugin with current native APIs and evidence-based engineering. Use for commands, editor extensions, custom views, search/indexing, import/export, sync/network integrations, media/reading, AI tools, settings, mobile compatibility and official releases. Also use for lifecycle, data, performance, race-condition and release failures. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.\n",
+    "job_to_be_done": "Develop, debug, review, test and release any Obsidian plugin with current native APIs and evidence-based engineering. Use for commands, editor extensions, custom views, search/indexing, import/export, sync/network integrations, media/reading, AI tools, settings, mobile compatibility and official releases. Also use for lifecycle, data, performance, race-condition and release failures. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.\n",
     "target_users": [
       "Qiaomu operator"
     ],
-    "inputs": [
-      "task intent",
-      "repository",
-      "SDK version",
-      "QA vault",
-      "review feedback"
-    ],
-    "outputs": [
-      "minimal patch or review",
-      "verification record",
-      "release-stage ledger"
-    ],
-    "exclusions": [
-      "ordinary vault writing",
-      "unrequested publishing"
-    ],
+    "inputs": [],
+    "outputs": [],
+    "exclusions": [],
     "qiaomu_defaults": {}
   },
   "triggers": {
@@ -41,7 +28,12 @@
       "审查 Obsidian plugin release",
       "Obsidian 插件设置重复 tab",
       "Obsidian 阅读器回跳修复",
-      "Obsidian 插件官方审核发布"
+      "Obsidian 插件官方审核发布",
+      "开发 Obsidian 日历任务视图插件",
+      "修复 Obsidian CM6 编辑器扩展中文输入错位",
+      "审查 Obsidian CSV 导入导出插件的数据安全",
+      "优化 Obsidian 全库索引插件的启动性能",
+      "调试 Obsidian 与外部任务服务的同步插件"
     ],
     "should_not_trigger": [
       "帮我写普通 Markdown",
@@ -57,45 +49,37 @@
     ]
   },
   "workflow": {
-    "router_rules": [
-      "Only load task-relevant references",
-      "Audit-only is read-only",
-      "Current user overrides defaults"
-    ],
-    "compact_workflow": [
-      "inspect",
-      "reproduce",
-      "implement",
-      "verify in QA vault",
-      "publish if authorized",
-      "report evidence"
-    ],
+    "router_rules": [],
+    "compact_workflow": [],
     "gate_ladder": [],
-    "output_contract": [
-      "diagnosis",
-      "implementation",
-      "verification",
-      "distribution status"
-    ]
+    "output_contract": []
   },
   "resources": {
     "references": [
+      "references/ai-integrations.md",
       "references/capture-navigation.md",
+      "references/data-reliability.md",
+      "references/editor-lifecycle.md",
       "references/engineering.md",
       "references/fonts-media.md",
       "references/lessons.md",
-      "references/product-ux.md",
-      "references/release.md",
+      "references/performance-large-files.md",
       "references/platform-patterns.md",
-      "references/data-reliability.md",
-      "references/editor-lifecycle.md",
+      "references/plugin-architecture.md",
+      "references/prior-art-evaluation.md",
+      "references/product-ux.md",
+      "references/reader-workflows.md",
+      "references/release.md",
+      "references/submission-failures.md",
       "references/testing-troubleshooting.md"
     ],
     "scripts": [
       "scripts/audit_release.py",
+      "scripts/check_public_release.py",
       "scripts/validate_skill.py"
     ],
     "evals": [
+      "evals/output-cases.md",
       "evals/trigger_cases.json"
     ],
     "reports": [
@@ -103,11 +87,15 @@
       "reports/prior-art-candidates.json",
       "reports/prior-art-research.md",
       "reports/research-2026-09-08.md",
-      "reports/research-v1.2.0.md"
+      "reports/research-v1.2.0.md",
+      "reports/retrospective-2026-09-08-to-15.md",
+      "reports/skill-ir.json",
+      "reports/trigger-eval.json",
+      "reports/validation.md"
     ]
   },
   "portability": {
-    "canonical_format": "agent-skills",
+    "canonical_format": null,
     "adapter_targets": [
       "openai",
       "claude",

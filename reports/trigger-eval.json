@@ -8,8 +8,8 @@
   ],
   "missing_description_concepts": [],
   "summary": {
-    "total": 14,
-    "passed": 14,
+    "total": 19,
+    "passed": 19,
     "false_positive": 0,
     "false_negative": 0,
     "pass_rate": 1.0
@@ -89,6 +89,76 @@
       },
       {
         "prompt": "Obsidian 插件官方审核发布",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "action",
+          "domain",
+          "plugin"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "开发 Obsidian 日历任务视图插件",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "action",
+          "domain",
+          "plugin"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "修复 Obsidian CM6 编辑器扩展中文输入错位",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "action",
+          "domain",
+          "plugin"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "审查 Obsidian CSV 导入导出插件的数据安全",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "action",
+          "domain",
+          "plugin"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "优化 Obsidian 全库索引插件的启动性能",
+        "family": "default",
+        "expected_trigger": true,
+        "predicted_trigger": true,
+        "passed": true,
+        "score": 1.0,
+        "matched_concepts": [
+          "action",
+          "domain",
+          "plugin"
+        ],
+        "negative_pattern": null
+      },
+      {
+        "prompt": "调试 Obsidian 与外部任务服务的同步插件",
         "family": "default",
         "expected_trigger": true,
         "predicted_trigger": true,
