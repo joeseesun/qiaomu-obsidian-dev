@@ -45,3 +45,7 @@ README 首屏放官方安装 URL 与说明，GitHub About 的 website 可指同�
 本地/CI 通过；GitHub 1.2.3 已发布且三个资产完整；官方审核 queued；公开页面仍为 1.2.2。下一步是等待/处理官方反馈，不能写「自动上架成功」。
 
 政策依据：[Developer policies](https://docs.obsidian.md/community-directory/developer-policies)，核对于 2026-09-08；后续发布重新核实。
+
+## 原生安装后的宿主附加内容
+
+2026-09 的宿主安装核验观察到 main.js 末尾可能由 Obsidian 添加 `/* nosourcemap */`。公开 Release 仍必须与候选原始字节一致；原生安装若摘要不同，先核对是否仅有已验证的宿主后缀，并记录原始/安装摘要和精确差异。不得为让校验通过任意裁剪、忽略未知差异。版本、公开资产、正式扫描和实际更新成功仍是独立证据。

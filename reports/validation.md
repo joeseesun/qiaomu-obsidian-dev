@@ -55,3 +55,10 @@
 - Added four visually inspected case screenshots under `assets/cases/`: combined Obsidian plugin evidence, Reader library, Reader AI assistance and AI RSS reader.
 - Skill Creator quick validation passed; package validation passed with zero failures/warnings; 26 unit tests passed.
 - Qiaomu Skill Publisher dry-run passed, including README and Qiaomu profile checks.
+
+## 1.8.0 · 2026-09-26
+
+- 新增 `references/qiaomu-family.md`：乔木插件家族两个协议（`qiaomu-context` v1、`qiaomu-home` v1）的职责、接入判断、实现要点、参考实现与验收；新增起点页/新标签接管的实测经验。
+- 新增 `assets/qiaomu-protocols/`：可原样复制的 `qiaomu-home.ts`、`qiaomu-home.js`、`qiaomu-context.ts`，技能不再依赖本机仓库路径。
+- 路由：SKILL.md 任务表新增一行；`plugin-architecture.md` 注明乔木系列插件的例外，非乔木插件仍不默认接入。
+- 证据来源：乔木Home 0.1.0 与 Reader/RSS/Radio/Agent 的 `claude/home-protocol` 分支在 rockfish 库的真实宿主验证（provider 发现、卡片、搜索、新标签接管、回退）。
