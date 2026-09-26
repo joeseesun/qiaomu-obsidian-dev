@@ -4,7 +4,7 @@ description: |
   Develop, debug, review, test and release any Obsidian plugin with current native APIs and evidence-based engineering. Use for commands, editor extensions, custom views, search/indexing, import/export, sync/network integrations, media/reading, AI tools, settings, mobile compatibility and official releases. Also use for lifecycle, data, performance, race-condition and release failures. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.
 metadata:
   author: 向阳乔木
-  version: "1.7.1"
+  version: "1.9.0"
 ---
 
 # Qiaomu Obsidian Dev
@@ -34,6 +34,7 @@ metadata:
 | --- | --- |
 | 所有插件：类型识别、状态/副作用/生命周期与验收设计 | [插件类型与通用架构](references/plugin-architecture.md) |
 | 新插件、重大新能力、竞品重叠与技术路线判断 | [前置调研与评估](references/prior-art-evaluation.md) |
+| 设置页重构、黑灰配色、卡片留白、图标对齐、渐进配置与关于 | [设置 GUI](references/settings-gui.md) |
 | 视图、工具栏、列表、设置、空态、移动交互 | [产品界面与设置](references/product-ux.md) |
 | 书库、选文 popup/右键、划线回跳、AI 助读 | [学习型阅读器](references/reader-workflows.md) |
 | 字体大小、离线字库、缓存图片、拖拽附件 | [字体与媒体](references/fonts-media.md) |
@@ -43,6 +44,7 @@ metadata:
 | 大数据集/长文/媒体、内存增长、虚拟化与资源回收 | [规模与资源性能](references/performance-large-files.md) |
 | 配置迁移、并发写入、同步、密钥、索引 | [数据可靠性](references/data-reliability.md) |
 | 网络服务、跨插件协议、AI、MCP/Skill 与外部能力 | [外部集成与能力](references/ai-integrations.md) |
+| 乔木系列插件（`qiaomu-*`）：接入乔木Home 起点页、乔木 Agent 上下文，起点页/新标签接管 | [乔木插件家族协议](references/qiaomu-family.md) |
 | Markdown 组件、CM6 装饰、资源释放 | [编辑器与生命周期](references/editor-lifecycle.md) |
 | 回归测试、真实宿主测试、常见故障定位 | [测试与诊断](references/testing-troubleshooting.md) |
 | 插件商店搜不到、审核、Release、安装 | [发布门禁](references/release.md) |
@@ -50,6 +52,8 @@ metadata:
 | 经验来源、偏好变化、哪些不是通则 | [经验与依据](references/lessons.md) |
 
 ## 默认产品判断
+
+乔木插件新 UI 默认使用作用域内的黑白灰语义色、Lucide 图标、明确内边距与渐进配置；优先任务和可见状态，少说明，不堆控件。设置页细则和实机检查见 [设置 GUI](references/settings-gui.md)。用户当前偏好优先，纯图标 tooltip 等项目例外不得被默认值覆盖。
 
 以用户的主任务而不是数据表或技术模块组织界面：命令型插件缩短执行路径，编辑器插件保持写作流，管理/索引插件突出查找与批处理，集成插件清楚显示连接与同步状态。默认选择即可开始，复杂配置渐进展开；减少常驻说明和无明确用途的控件。阅读型插件再应用“继续读 → 划线/思考 → 笔记 → 回到原文”的专项流程。
 

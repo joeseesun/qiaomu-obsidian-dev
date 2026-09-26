@@ -1,4 +1,4 @@
-# Creation handoff · 1.7.1
+# Creation handoff · 1.8.0
 
 研究：cameronsjo Obsidian Plugin Patterns 目录摘要（完整源码missing）；Obsidian官方 Plugin guidelines/Submit your plugin；qiaomu-meta-skill与qiaomu-skill-publisher。具体吸收和拒绝见 prior-art-research.md。
 
@@ -45,3 +45,17 @@ Qiaomu Reader 4.2.14 曾在默认分支先暴露新 manifest 版本、对应 Rel
 ## 1.7.1 — 2026-09-15 README 发布页升级
 
 README 首屏改为痛点、价值、安装命令、自然语言触发方式与真实案例截图，不再先展示内部版本日志。新增 Qiaomu Reader、Qiaomu AI RSS、Qiaomu Radio 三个实际开发和迭代案例，以及“普通 AI 开发 vs 使用 Skill”对比、八类插件覆盖、证据边界、安装前置和 Troubleshooting。截图来自用户提供的真实插件展示、Reader 当前中文界面和 AI RSS 当前仓库。
+
+## 1.8.0 — 2026-09-26 乔木插件家族协议
+
+- 新增 `references/qiaomu-family.md` 与 `assets/qiaomu-protocols/`，记录 `qiaomu-context` v1 与新 `qiaomu-home` v1，并规定新的乔木插件在开发前判断是否接入。
+- 泛化判断：协议属于「可选适配器」，仅对 `qiaomu-*` 插件或用户明确要求时加载；通用规则只提炼了「接管空白标签需延迟并复查仍为 empty」「单订阅者 API 另加多观察者入口」两条。
+- 证据：rockfish 库真实宿主（Obsidian 1.13.7）验证 provider 发现、卡片内容、搜索分组、新标签接管且不抢其他插件的标签、history back 回到主页。**missing evidence**：移动端真机、Agent `compose({submit:true})` 的真实模型调用。
+
+## 1.9.0 · 2026-09-27 本地增量
+
+用户授权从近期会话提炼。参考技能为 qiaomu-meta-skill（按证据分层、保持主入口精简）及现有 qiaomu-obsidian-dev（沿用真实宿主与发布门禁）。不是新 skill 或重大重构，未重跑市场技能竞品检索。新增 settings-gui 专项与复盘来源矩阵，修正「模型一律优先下拉」这一过时概括。
+
+设计优势：偏好、项目例外、证据与候选根因分开，避免越用越多的硬规则。已验证：现有脚本单测与包/触发检查；Home 当前宿主间距、对齐、配色和展开行为。假设：这些设计判断能降低后续返工，尚无跨项目受控效果数据。刻意不采纳固定模型名、固定二维码展开方式、单一故障万能根因。仅更新本地唯一源，未发布新 skill Release。
+
+发布补充：用户随后明确授权发布 v1.9.0；上述“未发布”是本地验收时的检查点。实际发布结果以 GitHub Release 和安装验证为准。

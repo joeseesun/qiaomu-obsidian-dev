@@ -206,3 +206,7 @@ Copyright (c) 向阳乔木。
 GPL-3.0-only，保留第三方各自许可。遵守 GPL 可商用；如需独立商业授权，可联系作者。
 
 https://qiaomu.ai · https://x.com/vista8 · https://github.com/joeseesun/
+
+## 1.9.0：设置 GUI 与近期会话复盘
+
+新增 [设置 GUI 指南](references/settings-gui.md)：黑灰作用域配色、内边距与标题对齐、渐进表单、图标提示例外和多窗口验收。补充数据迁移、媒体输出、CLI 能力、隐藏容器初始化与原生更新核验。参见 [2026-09-16—27 复盘](reports/retrospective-2026-09-16-to-27.md) 的来源、检索范围与证据边界；本地更新不等于已发布技能。
