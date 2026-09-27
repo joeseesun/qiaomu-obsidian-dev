@@ -210,3 +210,7 @@ https://qiaomu.ai · https://x.com/vista8 · https://github.com/joeseesun/
 ## 1.9.0：设置 GUI 与近期会话复盘
 
 新增 [设置 GUI 指南](references/settings-gui.md)：黑灰作用域配色、内边距与标题对齐、渐进表单、图标提示例外和多窗口验收。补充数据迁移、媒体输出、CLI 能力、隐藏容器初始化与原生更新核验。参见 [2026-09-16—27 复盘](reports/retrospective-2026-09-16-to-27.md) 的来源、检索范围与证据边界；本地更新不等于已发布技能。
+
+## 1.10.0：开发到上架提速
+
+新增 [提速手册](references/speed-playbook.md)：先审计列清单再一次改完一次发、已知宿主陷阱（生命周期同名方法、thenable 对象、未打开视图、编辑器写入、焦点与可见性刷新）、`scripts/host_eval.py` 在 QA 库脚本化真实操作并收集控制台错误与截图、预扫描告警前置与人工步骤集中交接。来源与证据边界见 [2026-09-27 复盘](reports/retrospective-2026-09-27-speed.md)；本地更新不等于已发布技能。
