@@ -59,3 +59,11 @@ README 首屏改为痛点、价值、安装命令、自然语言触发方式与�
 设计优势：偏好、项目例外、证据与候选根因分开，避免越用越多的硬规则。已验证：现有脚本单测与包/触发检查；Home 当前宿主间距、对齐、配色和展开行为。假设：这些设计判断能降低后续返工，尚无跨项目受控效果数据。刻意不采纳固定模型名、固定二维码展开方式、单一故障万能根因。仅更新本地唯一源，未发布新 skill Release。
 
 发布补充：用户随后明确授权发布 v1.9.0；上述“未发布”是本地验收时的检查点。实际发布结果以 GitHub Release 和安装验证为准。
+
+## 1.10.0 · 2026-09-27 本地增量：开发到上架提速
+
+- 范围：用户要求总结近期乔木 Obsidian 插件经验，提升开发、修复与上架速度。属于现有技能的增量改进，未做新的外部 prior-art 检索（**not applicable**：规则来自本地实测与发版记录，无需要对照的同类技能）。
+- 新增：`references/speed-playbook.md`、`scripts/host_eval.py`（附 `tests/test_host_eval.py`）、engineering / testing / release / lessons 的对应段落、两条触发用例与「发版」「上架」词汇。
+- 泛化门：只提升跨 Home、RSS、Reader、Agent 重复出现或属于宿主 API 不变量的规则；Home 的具体卡片、Tasks 插件 API 仅作示例，不成为默认要求。
+- 证据：`host_eval.py` 对 qiaomu-home-component-qa 实际运行成功（**validated**）；提速效果本身是 **hypothesis**，需下一轮以「补丁版本数、宿主回合数」观察。
+- 未发布：本地技能目录不是 git 仓库，本次未授权发布。

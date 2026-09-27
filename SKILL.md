@@ -4,7 +4,7 @@ description: |
   Develop, debug, review, test and release any Obsidian plugin with current native APIs and evidence-based engineering. Use for commands, editor extensions, custom views, search/indexing, import/export, sync/network integrations, media/reading, AI tools, settings, mobile compatibility and official releases. Also use for lifecycle, data, performance, race-condition and release failures. Exclude ordinary vault note writing, generic Markdown formatting, plugin recommendations, non-Obsidian app development, and skill authoring itself.
 metadata:
   author: 向阳乔木
-  version: "1.9.0"
+  version: "1.10.0"
 ---
 
 # Qiaomu Obsidian Dev
@@ -24,7 +24,7 @@ metadata:
 2. 新插件或重大新能力在写实现前读取 [前置调研与评估](references/prior-art-evaluation.md)：先核对当前官方文档/API/示例，再检查功能最接近且许可明确的开源插件源码，交付可追溯的评估方案。默认等用户确认推荐方向后再进入大规模实现；用户已明确“直接开发/按推荐方案做”时，可在同一轮给出精简评估后继续。局部修复、回归、文档与发布工作不强制重做完整调研。
 3. 修复前复现问题，沿“用户动作 → 命令/事件 → 状态转换 → 宿主/网络/文件副作用 → UI反馈 → 清理/恢复”定位根因；不能从某个历史案例直接猜当前插件也有同一问题。
 4. 在现有架构内做最小实现。明确单一数据源、请求/任务身份、持久化时机、失败恢复、卸载清理与兼容边界；保持用户当前任务、焦点、选区、编辑内容或其他插件相关状态不被意外覆盖。
-5. 按改动运行 lint/typecheck/测试/build，再安装到指定测试库并重载。验证真正的用户操作；模拟测试和实机结果分开写。
+5. 按改动运行 lint/typecheck/测试/build，再安装到指定测试库并重载，用 `scripts/host_eval.py` 脚本化真实用户操作。模拟测试和实机结果分开写。批量修复与发版提速见 [提速手册](references/speed-playbook.md)。
 6. 授权发布时按 [发布门禁](references/release.md) 走 feature branch/PR → checks → 最终候选 SHA 官方 Preview Scan → Draft Release 与安装验收 → **先公开同版本 Release 并确认匿名资产 200/摘要匹配，再让默认分支 manifest 暴露新版本** → 正式审核与目录/客户端核验。预扫描 Error 或缺证时不得公开发布；扫描后修改代码/依赖/配置须重扫。CI 默认只产草稿，不因推 tag 直接公开。已登录的 `gh release download` 可读草稿，不能代替匿名安装链路检查。
 7. 交付改动、测试结果、未覆盖平台、实际发布阶段和可点击产物。无法验证的部分直接标记，禁止声称「自动上架成功」。
 
@@ -47,6 +47,7 @@ metadata:
 | 乔木系列插件（`qiaomu-*`）：接入乔木Home 起点页、乔木 Agent 上下文，起点页/新标签接管 | [乔木插件家族协议](references/qiaomu-family.md) |
 | Markdown 组件、CM6 装饰、资源释放 | [编辑器与生命周期](references/editor-lifecycle.md) |
 | 回归测试、真实宿主测试、常见故障定位 | [测试与诊断](references/testing-troubleshooting.md) |
+| 批量打磨/修复、减少补丁版本、宿主脚本验收、发版人工步骤 | [提速手册](references/speed-playbook.md) |
 | 插件商店搜不到、审核、Release、安装 | [发布门禁](references/release.md) |
 | manifest/Release/Tag 不一致、构建验证、CSS Lint、扫描 Pending | [提交故障手册](references/submission-failures.md) |
 | 经验来源、偏好变化、哪些不是通则 | [经验与依据](references/lessons.md) |
@@ -68,11 +69,12 @@ metadata:
 ```bash
 python3 scripts/audit_release.py /path/to/plugin --tag 1.2.3 --max-asset-bytes 5000000 --scan-tips
 python3 scripts/check_public_release.py /path/to/plugin --repo owner/repo --version 1.2.3 --attempts 6
+python3 scripts/host_eval.py --vault <qa-vault> --reload <plugin-id> --file check.js --screenshot /tmp/shot.png
 python3 -m unittest discover -s tests -p 'test_*.py'
 rg -n 'setTooltip|setAttribute\(["'"']title|\btitle\s*:|aria-label' plugin-src src styles.css
 ```
 
-本地审计脚本只读，输出 JSON 与非零失败码；它检查本地产物、版本、大小与摘要。`check_public_release.py` 不使用 GitHub 登录或 API token，通过安装器使用的精确 Release URL 匿名下载根级资产，并与本地最终产物逐字节比较；它只证明当次公开下载，不证明目录同步或真机运行。`--scan-tips` 按插件入口（`esbuild.plugin.mjs`、`tsconfig.plugin.json`，否则退回 `plugin-src`/`src`）只扫真正进入插件的源码与 `main.js`、`styles.css`：源码查 `aria-label`、`title=`、`setTooltip`、`data-tooltip`，构建产物只查 `setTooltip(` 与 `data-tooltip`，跳过测试文件。这些脚本不执行目标项目代码，不证明官方审核、依赖安全或移动兼容。5 MB 是本项目经验的可配置预算，不声称永久官方限制。
+本地审计脚本只读，输出 JSON 与非零失败码；它检查本地产物、版本、大小与摘要。`check_public_release.py` 不使用 GitHub 登录或 API token，通过安装器使用的精确 Release URL 匿名下载根级资产，并与本地最终产物逐字节比较；它只证明当次公开下载，不证明目录同步或真机运行。`--scan-tips` 按插件入口（`esbuild.plugin.mjs`、`tsconfig.plugin.json`，否则退回 `plugin-src`/`src`）只扫真正进入插件的源码与 `main.js`、`styles.css`：源码查 `aria-label`、`title=`、`setTooltip`、`data-tooltip`，构建产物只查 `setTooltip(` 与 `data-tooltip`，跳过测试文件。审计与公开回读脚本不执行目标项目代码，不证明官方审核、依赖安全或移动兼容。`host_eval.py` 相反：它在指定库的 Obsidian 里以完整权限执行你写的检查脚本，只对 QA 库使用；它证明的是该桌面库、该版本上的这次操作。5 MB 是本项目经验的可配置预算，不声称永久官方限制。
 
 ## 输出合同
 

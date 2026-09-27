@@ -3,7 +3,7 @@
   "generated_at": "2026-09-27",
   "package": {
     "name": "qiaomu-obsidian-dev",
-    "version": "1.9.0",
+    "version": "1.10.0",
     "owner": "向阳乔木",
     "maturity_tier": "governed",
     "lifecycle_stage": null,
@@ -33,7 +33,9 @@
       "修复 Obsidian CM6 编辑器扩展中文输入错位",
       "审查 Obsidian CSV 导入导出插件的数据安全",
       "优化 Obsidian 全库索引插件的启动性能",
-      "调试 Obsidian 与外部任务服务的同步插件"
+      "调试 Obsidian 与外部任务服务的同步插件",
+      "批量修复 Obsidian 插件的问题并一次发版",
+      "Obsidian 插件发版总被预扫描卡住，怎么更快上架"
     ],
     "should_not_trigger": [
       "帮我写普通 Markdown",
@@ -45,7 +47,8 @@
       "开发 VSCode 插件",
       "修复网页阅读器字体",
       "翻译文档 Obsidian plugin release",
-      "Obsidian 笔记整理"
+      "Obsidian 笔记整理",
+      "VSCode 扩展怎么更快发版"
     ]
   },
   "workflow": {
@@ -72,12 +75,14 @@
       "references/reader-workflows.md",
       "references/release.md",
       "references/settings-gui.md",
+      "references/speed-playbook.md",
       "references/submission-failures.md",
       "references/testing-troubleshooting.md"
     ],
     "scripts": [
       "scripts/audit_release.py",
       "scripts/check_public_release.py",
+      "scripts/host_eval.py",
       "scripts/validate_skill.py"
     ],
     "evals": [
@@ -94,6 +99,7 @@
       "reports/retrospective-2026-09-16-to-27.md",
       "reports/skill-ir.json",
       "reports/trigger-eval.json",
+      "reports/validation-2026-09-27.md",
       "reports/validation.md"
     ]
   },
